@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>RED COMUNITARIA| Estado de Conexión</title>
+    <link rel="icon" href="img/LogoNegro.png" type="image/x-icon">
+    <!-- Refresh -->
+    $(if refresh-timeout)
+    <meta http-equiv="refresh" content="$(refresh-timeout-secs)"> $(endif)
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="expires" content="-1" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    
+</head>
+<style>
+    body{
+        background:gray;
+    }
+    #statu{
+        box-shadow: 4px 4px 8px rgb(5, 5, 5);
+    }
+</style>
+<body>
+    <!-- <script type="text/javascript" src="md5.js"></script> -->
+    <script language="JavaScript">
+        function readablizeBytes(bytes) {
+            var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+            var e = Math.floor(Math.log(bytes) / Math.log(1000));
+            return (bytes / Math.pow(1000, Math.floor(e))).toFixed(2) + " " + s[e];
+        }
+    </script>
+    <script language="JavaScript">
+        function readablizeBytesPlan(bytes) {
+            var s = ['bytes', 'kb', 'MB', 'GB', 'TB', 'PB'];
+            var e = Math.floor(Math.log(bytes) / Math.log(1000));
+            return (bytes / Math.pow(1000, Math.floor(e))).toFixed(0) + " " + s[e];
+        }
+    </script>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center " id="card-container">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-10 mt-5">
+                <div class="card text-center" id="statu">
+                    <h5 class="card-header bg-light">Estado de Conexión</h5>
+                    <div class="card-body bg-light">
+                        <div class="text-center my-1 ">
+                            <img src="img/logo_small.png" width="400"  alt="Red Comunitaria" width="100">
+                        </div>
+                        <script>
+                            let username = "$(username)";
+                            let user = username.split("-");
+                            if (user[0] == 'T') {
+                                document.write("<h3> Bienvenido Temporalmente</h3>")
+                            } else {
+                                document.write(`<h3> Bienvenido   ${username}  </h3>`)
+                            }
+                        </script>
+                        <table class="table table-bordered">
+                            <tbody >
+                                <tr>
+                                    <td>Direccion IP:</td>
+                                    <td>$(ip)</td>
+                                </tr>
+                                <tr>
+                                    <td>Subida/Bajada de esta sesión:</td>
+                                    <td>$(bytes-in-nice) / $(bytes-out-nice)</td>
+                                </tr>
+                                $(if limit-bytes-total)
+                                <tr>
+                                    <td>Datos Restantes:</td>
+                                    <td id="bytesrestantes" style="background-color: #efdd61;">
+                                        $(remain-bytes-out)
+                                        <script language="JavaScript">
+                                            document.write(readablizeBytes($(remain - bytes - total)));
+                                        </script>
+                                    </td>
+                                </tr>
+                                $(else)
+                                <tr>
+                                    <td>Total Transferido:</td>
+                                    <td>
+                                        <script language="JavaScript">
+                                            document.write(readablizeBytes($(bytes -in) + $(bytes - out)));
+                                        </script>
+                                    </td>
+                                </tr>
+                                $(endif) $(if session-time-left)
+                                <tr>
+                                    <td>Conexión / Restante:</td>
+                                    <td>$(uptime) / $(session-time-left)</td>
+                                </tr>
+                                $(else)
+                                <tr>
+                                    <td>Conectado:</td>
+                                    <td>$(uptime)</td>
+                                </tr>
+                                $(endif)
+                            </tbody>
+                        </table>
+                        <div>
+                            <a href="logout?erase-cookie=true" class="btn btn-raised btn-dark" role="button">Cerrar
+                                Sesión </a> &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script>
+        let container = document.getElementById('card-container')
+        let alto = window.innerHeight
+
+        container.style.height = `${alto}px`
+    </script>
+</body>
+<html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="expires" content="-1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Lazaro Augusto Marin Gomez">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href='css/login.css'>
+  <link rel="stylesheet" href="css/style.css">
+  <title>RED COMUNITARIA SABANA GRANDE</title>
+  <link rel="shortcut icon" href="img/LogoNegro.png" type="image/x-icon">
+</head>
+<body>
+
+  <!--FORMULARIO NO VISIBLE-->
+  $(if chap-id)
+  <form name="sendin" action="$(link-login-only)" method="post">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+
+  <script type="text/javascript" src="/md5.js"></script>
+  <script type="text/javascript">
+    //< !--
+    function doLogin() {
+      document.sendin.username.value = document.login.username.value;
+      document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+      document.sendin.submit();
+      return false;
+    }
+	//-->
+  </script>
+  $(endif)
+
+  <!-- MENU DE NAVEGACION -->
+  <div class="row bg-dark container-fluid" id="menu">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <div class="container">
+        <a class="navbar-brand" id="inicio" href="login.html"><img width="350" id="logo" src="img/logo_white.png" /></a>
+      </div>
+    </nav>
+  </div>
+  <!-- FIN MENU DE NAVEGACION -->
+
+  <!-- HEADER / CABEZERA -->
+  <header id="header-home">
+    <div class="container align-items-center">
+      <div class="row align-items-center  text-white">
+        <div class="col-12 col-lg-7 my-5 informacion">
+          <h1 class="display-5 font-weight-bold"> RED COMUNITARIA SABANA GRANDE</h1>
+          <p class="font-weight-bold">
+            Ésta red se mantiene gracias a algunos usuarios que conscientemente hacen un aporte mensual
+            para contribuir al mantenimiento, funcionamiento y mejoras de ésta red, éstos aportes han ido
+            mermado con el paso del tiempo, es por eso que el equipo de administradores de esta red ve con
+            necesidad la aplicacion de un cobro mensual a usuarios con alto requerimiento de datos.</p>
+          <p class="font-weight-lighter" id="megas-gratis">
+            Se implementarán los siguientes planes manteniendo el inicio de
+            sesion gratuito con las restricciones de 200MB Cada 6 horas ("Mas info Abajo")
+          </p>
+        </div>
+        <div class="col-md-5 my-5 text-center">
+          <img src="img/logoRendondoBlanco.png" alt="" class="logo-info text-center w-50">
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </header>
+  <!-- FIN HEADER / CABEZERA -->
+
+  <!-- INICIO DE LA SECCION PLANES -->
+  <div id="planes" class="mt-5 mb-5">
+    <a id="main-planes"></a>
+    <div class="container">
+      <!--Mi ROW PARA EL TITULO-->
+      <div class="row my-3">
+        <div class="col">
+          <h2 class="text-center" id="titulo-formulario">PLANES DISPONIBLES</h2>
+        </div>
+      </div>
+
+      <!--Mi ROW PARA LAS CAJAS-->
+      <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-4 my-1">
+          <div class="card w-100 card-boder">
+            <div class="card-header">
+              PLAN BASICO(30GB)
+            </div>
+            <img src="img/basico.png" class="card-img-top img" title="BAJO CONSUMO" alt="BASICO">
+            <div class="card-body">
+              <h5 class="card-title">PRECIO:5$ - 30GB</h5>
+              <p class="card-text text-center"><a class="btn btn-dark" data-toggle="modal" data-target="#ModalBajo">Mas
+                  Info..</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-11 col-sm-10 col-md-4  my-1">
+          <div class="card w-100 card-boder">
+            <div class="card-header">
+              PLAN MEDIO(65GB)
+            </div>
+            <img src="img/medio.png" height="512" class="card-img-top img" title="MEDIO CONSUMO" alt="MEDIO">
+            <div class="card-body">
+              <h5 class="card-title">PRECIO:10$ - 65GB</h5>
+              <p class="card-text text-center"><a class="btn btn-dark" data-toggle="modal" data-target="#ModalMedio">Mas
+                  Info..</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-11 col-sm-10 col-md-4  my-1">
+          <div class="card w-100 card-boder">
+            <div class="card-header">
+              ALTO CONSUMO(120GB)
+            </div>
+            <img src="img/alto.png" height="512" class="card-img-top img" title="ALTO CONSUMO" alt="ALTO">
+            <div class="card-body">
+              <h5 class="card-title">PRECIO:15$ - 120GB</h5>
+              <p class="card-text text-center"><a class="btn btn-dark" data-toggle="modal" data-target="#ModalAlto">Mas
+                  Info..</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--Mi ROW PARA EL ICONO-->
+      <div class="row">
+        <div class="col-12 text-center">
+          <img src="img/logo_large.png" width="60%" class="logo-planes mt-3" alt="LOGO DE INTERNET COMUNITARIO">
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- FIN DE LA SECCION PLANES -->
+
+  <!--INICIO DE LOS MODALES DE LAS TARGETAS-->
+  <div class="modal fade" id="ModalAlto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PLAN ALTO CONSUMO <img src="img/premiun.png" width="40"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Calculado a Razón de 4GB Diarios Rinde para un grupo familiar que disfrutan de Noticias, Bancos,
+            Whatsapp, y un uso extenso de redes sociales y entretenimiento digital.
+            <i> "El cupo de usuarios con este plan está limitado, contacte para mas informacion."</i>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <p class=" text-center"> PRECIO: 15$ - PARA: 120GB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalMedio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PLAN MEDIO CONSUMO </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Calculado a Razón de 2GB Diarios Rinde para un grupo familiar que disfrutan de Noticias, Bancos,
+            Whatsapp, y un uso moderado-normal de redes sociales y entretenimiento digital.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <p class=" text-center"> PRECIO: 10$ - PARA: 65GB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalBajo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PLAN BAJO CONSUMO</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+          <p>Éste plan de datos está calculado a medida de 1GB Diario, Rinde para un grupo familiar enfocado
+            en lo necesario (Noticias, Bancos, Whatsapp, Poco de redes sociales y poco entretenimiento
+            digital.)
+          </p>
+        </div>
+        <div class="modal-footer">
+          <p class=" text-center"> PRECIO: 5$ - PARA: 30GB</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN DE LOS MODALES DE LAS TARGETAS-->
+
+
+  <!-- FORMULARIO PARA INGRESAR AL LOGIN -->
+  <div class="row login">
+    
+    <form  class="vertical-form my-5" name="login" action="$(link-login-only)" method="post" $(if chap-id)
+      onSubmit="return doLogin()" $(endif)>
+      <!--OCULTO-->
+      <input type="hidden" name="dst" value="$(link-orig)" />
+      <input type="hidden" name="popup" value="true" />
+      
+
+      <legend class="legend">
+        <img class="logo" src="img/wifi_lock.png"/>
+        <p>INICIO DE SECCION</p>
+      </legend>
+
+      <input name="username" type="text" value="$(username)" placeholder="USUARIO"/>
+
+      <input name="password" type="password"  placeholder="CONTRASEÑA"  />
+
+      <input type="submit" value="" />
+      
+      <div class='footer'>
+        <p>$(if trial == 'yes')<a
+            href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">CLICK AQUI PARA LOS 200MB GRATIS</a>.$(endif)</p>
+        <p style="border: 1px solid rgb(109, 109, 109); width: 70%; margin: 0px auto;box-shadow: 2px 4px 7px rgb(87, 0, 0);padding: 10px; margin-top: 50px;">$(if error)<span style="color: #eaff06; font-size: 20px">$(error)</span>$(endif)</p>
+        <br>
+      </div>
+    </form>
+  </div>
+
+  <!-- FIN DEL FORMULARIO PARA INGRESAR AL LOGIN -->
+
+  <!-- PIE DE PAGINA (OPCIONAL) -->
+  <div id="footer" class="pt-4 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="small">&copy; 2021 - Red Comunitaria Sabana Grande</p>
+        </div>
+        <div class="col text-right">
+          <p class="small">INICIO DE SECCION</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- then Popper.js, then Bootstrap JS -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/popper.min.js"></script>
+
+
+  <!--SCRIPT PARA FORMULARIO DE MIKROTIX-->
+  
+ <!-- <script type="text/javascript">
+    // NO SE QUE TAN UTIL SEA ESTO , PERO HACE QUE SE VAYA AL FORMULARIO DE UNA
+      document.login.username.focus();
+</script>-->
+
+</body>
+
+</html>

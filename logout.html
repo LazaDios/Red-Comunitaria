@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>RED COMUNITARIA| Desconectado</title>
+    <link rel="icon" href="img/LogoNegro.png" type="image/x-icon">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="expires" content="-1" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+   
+</head>
+<style>
+    body{
+        background:grey;
+    }
+    #statu{
+        box-shadow: 4px 4px 8px rgb(5, 5, 5);
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row justify-content-center" id="card-container ">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-10 mt-5">
+                <div class="card text-center" id="statu">
+                    <h5 class="card-header">Estado de Conexión</h5>
+                    <div class="card-body">
+                        <div class="text-center my-1">
+                            <img src="img/logo_small.png" alt="Red Comunitaria" width="400">
+                        </div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Usuario:</td>
+                                    <td>$(username)</td>
+                                </tr>
+                                <tr>
+                                    <td>Dirección IP:</td>
+                                    <td>$(ip)</td>
+                                </tr>
+                                <tr>
+                                    <td>Dirección MAC:</td>
+                                    <td>$(mac)</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiempo de Conexión:</td>
+                                    <td>$(uptime)</td>
+                            </tbody>
+                        </table>
+                        <div>
+                            <form action="$(link-login)" name="login" onSubmit="return openLogin()">
+                                <input class="btn btn-raised btn-dark" type="submit" value="Iniciar Sesión" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        let container = document.getElementById('card-container')
+        let alto = window.innerHeight
+
+        container.style.height = `${alto}px`
+    </script>
+</body>
+
+</html>
